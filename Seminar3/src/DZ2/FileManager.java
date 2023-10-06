@@ -41,17 +41,17 @@ public class FileManager {
             }
 //            System.out.println("File exists");
         } catch (FileNotFoundException e) {
-            throw new FileNotFoundException("Error, loaded file doesn't exist: " + e.getMessage());
+            throw new FileNotFoundException("File '" + file_path + "' doesn't exist, and not loaded: " + e.getMessage());
         }
     }
     public static void FileSave(String save_file_path, String[] data_array) throws FileNotFoundException {
         try {
             File save_file = new File(save_file_path);
             if (!save_file.exists()) {
+                // if want to create file
 //                save_file.createNewFile();
-                throw new FileNotFoundException("File: '" + save_file_path + "' not found for save");
-
 //                System.out.println("File created: " + save_file.getName());
+                throw new FileNotFoundException("File: '" + save_file_path + "' not found for save");
             } else {
                 System.out.println("File " + save_file_path + " already exists. Saving ...");
             }
