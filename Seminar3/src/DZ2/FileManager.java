@@ -14,14 +14,14 @@ import java.nio.file.Files;
 import java.util.Scanner;
 
 public class FileManager {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         // read file
         System.out.println("Load data from file ...");
         FileRead("test.txt");
 
         // save data to file
         System.out.println("Save data to file ...");
-        String[] data_array = {"dfsdf", "fsdfs"};
+        String[] data_array = {"first string", "second string"};
         FileSave("test.txt", data_array);
 
         //copy file text.txt to copied_test.txt
@@ -72,21 +72,18 @@ public class FileManager {
         }
     }
 
-    public static void FileCopy(String source_file_path, String dest_file_path) {
-        try {
-            File source=new File(source_file_path);
-            if (!source.exists()) {
-                throw new FileNotFoundException("Cant find source file: " + source);
-            }
-            File destination=new File(dest_file_path);
-            if (destination.exists()) {
-//                destination.createNewFile();
-                throw new FileAlreadyExistsException("Cant copy '" + source +"' to existed destination file: " + destination.getPath());
-            }
-            Files.copy(source.toPath(), destination.toPath());
-            System.out.println("File '" + source + "' copied to " + destination);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public static void FileCopy(String source_file_path, String dest_file_path) throws IOException {
+        File source=new File(source_file_path);
+        if (!source.exists()) {
+            throw new FileNotFoundException("Cant find source file: " + source);
         }
+        File destination=new File(dest_file_path);
+        if (destination.exists()) {
+//                destination.createNewFile();
+            throw new FileAlreadyExistsException("Cant copy '" + source +"' to existed destination file: " + destination.getPath());
+        }
+        Files.copy(source.toPath(), destination.toPath());
+        System.out.println("File '" + source + "' copied to " + destination);
+
     }
 }
