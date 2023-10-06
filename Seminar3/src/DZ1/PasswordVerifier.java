@@ -32,7 +32,7 @@ public class PasswordVerifier {
     }
 
     public static boolean Verify(String passwd) throws PassLengthException, PassNumException, PassCapitalException {
-        boolean result = false;
+        boolean result;
         // check length
         if (passwd.length() != 8) {
             throw new PassLengthException("Password length should get 8 symbols");
@@ -53,6 +53,6 @@ public class PasswordVerifier {
         if (!result) {
             throw new PassCapitalException("Password should contain Capitalized character");
         }
-        return  result;
+        return true;
     }
 }
