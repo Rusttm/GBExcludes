@@ -10,9 +10,14 @@ import java.util.Scanner;
 
 public class Seminar2Dz1 {
     public static void main(String[] args) {
-        System.out.println("Number: " + NumRequest() + "is correct!");
+        try {
+            System.out.println("Number: " + NumRequest() + " is correct!");
+        } catch (InvalidNumberException e) {
+            System.out.println(e);
+        }
+
     }
-    public static int NumRequest() {
+    public static int NumRequest() throws InvalidNumberException {
         Scanner scan = new Scanner(System.in);
         int age = 0;
         while (age < 1) {
@@ -29,10 +34,11 @@ public class Seminar2Dz1 {
                 System.out.println("Error: unknown number format");
             } catch (NegativeNumberException e) {
                 System.out.println("Number should be positive");
+                throw new InvalidNumberException("Not correct number");
             } catch (ZeroNumberException e) {
                 System.out.println("Number should be >0 ");
+                throw new InvalidNumberException("Not correct number");
             }
-
         }
         scan.close();
 
