@@ -11,13 +11,11 @@ public class OneNumberReader {
     }
     public static int Request(String msg) {
         Scanner scan = new Scanner(System.in);
-        int input_num = 0;
+        int input_num;
         while (true) {
             try {
                 System.out.println(msg);
                 input_num = Integer.parseInt(scan.nextLine());
-//                input_num = Integer.parseInt(System.console().readLine());
-
                 scan.close();
                 return input_num;
             } catch (NumberFormatException e) {
