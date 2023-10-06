@@ -31,6 +31,7 @@ public class FileManager {
     }
 
     public static void FileRead(String file_path) throws FileNotFoundException {
+        // reads file and print data from file, or throw errors, if file doesnt exist
         try {
             File load_file = new File(file_path);
             Scanner scanner = new Scanner(load_file);
@@ -45,10 +46,11 @@ public class FileManager {
         }
     }
     public static void FileSave(String save_file_path, String[] data_array) throws FileNotFoundException {
+        // saves data from array to existed file or throw exception
         try {
             File save_file = new File(save_file_path);
             if (!save_file.exists()) {
-                // if want to create file
+                // if you want to create file, uncomment
 //                save_file.createNewFile();
 //                System.out.println("File created: " + save_file.getName());
                 throw new FileNotFoundException("File: '" + save_file_path + "' not found for save");
@@ -73,6 +75,7 @@ public class FileManager {
     }
 
     public static void FileCopy(String source_file_path, String dest_file_path) throws IOException {
+        // copies source file to destination file or trow exception? if destination file already exist
         File source=new File(source_file_path);
         if (!source.exists()) {
             throw new FileNotFoundException("Cant find source file: " + source);
