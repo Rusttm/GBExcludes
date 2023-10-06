@@ -40,7 +40,6 @@ public class FileManager {
                 String data = scanner.nextLine();
                 System.out.println(data);
             }
-//            System.out.println("File exists");
         } catch (FileNotFoundException e) {
             throw new FileNotFoundException("File '" + file_path + "' doesn't exist, and not loaded: " + e.getMessage());
         }
@@ -82,7 +81,6 @@ public class FileManager {
         }
         File destination=new File(dest_file_path);
         if (destination.exists()) {
-//                destination.createNewFile();
             throw new FileAlreadyExistsException("Cant copy '" + source +"' to existed destination file: " + destination.getPath());
         }
         Files.copy(source.toPath(), destination.toPath());
