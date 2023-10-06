@@ -1,3 +1,6 @@
+// this class reads positive number >0 from command line and raise exception if its not
+
+
 package DZ1;
 
 import java.util.Scanner;
