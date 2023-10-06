@@ -13,7 +13,7 @@ public class Seminar2Dz1 {
         try {
             System.out.println("Number: " + NumRequest() + " is correct!");
         } catch (InvalidNumberException e) {
-            System.out.println(e);
+            System.out.println("Error: " + e);
         }
 
     }
