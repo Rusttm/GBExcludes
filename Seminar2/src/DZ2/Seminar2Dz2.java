@@ -9,4 +9,15 @@
 package DZ2;
 
 public class Seminar2Dz2 {
+    public static void main(String[] args) throws DivisionByZeroException {
+        int[] int_array = TwoNumbersReader.Request();
+        int a = int_array[0];
+        int b = int_array[1];
+        if (b == 0) {
+            throw new DivisionByZeroException("Unsupportable division by zero");
+        }
+        float result = (float) a /b;
+        System.out.println("Result (a/b): " + result);
+
+    }
 }
